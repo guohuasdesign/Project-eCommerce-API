@@ -1,16 +1,23 @@
 
 import express from "express";
-import dotenv from "dotenv";
-
-dotenv.config();
+import '#db';
+import { userRouter } from '#routers';
+import { errorHandler } from '#middleware';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.get("/", (_req, res) => {
-  res.send("Hello from Express + TypeScript!");
+app.use(express.json());
+
+
+app.use('/users', userRouter);
+
+app.use('*splat', (req, res) => {
+	throw new Error('Not found', { cause: { status: 404 } });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+app.use(errorHandler);
+
+app.listen(port, () => {
+	console.log(`Server is running on port ${port}`);
 });

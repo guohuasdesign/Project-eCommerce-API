@@ -1,11 +1,8 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     /* Base Options: */
     "esModuleInterop": true, // Enables default imports from CommonJS modules
-    "lib": [
-      "es2022"
-    ], // Includes modern ES features in the type system
+    "lib": ["es2022"], // Includes modern ES features in the type system
     "target": "es2022", // Sets the JavaScript version output
     "skipLibCheck": true, // Skips type checking of declaration files (*.d.ts)
     "allowJs": true, // Allows JavaScript files in the project
@@ -26,12 +23,8 @@
     /* Paths */
     "baseUrl": "./src", // Base path for module resolution
     "paths": {
-      "#*": [
-        "*"
-      ] // Defines internal path aliases with '#' to avoid conflict with '@'
+      "#*": ["*"] // Defines internal path aliases with '#' to avoid conflict with '@'
     }
   },
-  "include": [
-    "src"
-  ] // Files to include in compilation
+  "include": ["src"] // Files to include in compilation
 }
