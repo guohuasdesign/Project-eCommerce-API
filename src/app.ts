@@ -16,14 +16,14 @@ app.use('/categories', categoryRouter);
 app.use('/products', productRouter);
 app.use('/orders', orderRouter);
 
+// Swagger route should be registered before the catch-all and error handler
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.use('*splat', (req, res) => {
 	throw new Error('Not found', { cause: { status: 404 } });
 });
 
 app.use(errorHandler);
-
-// Swagger route
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(port, () => {
 	console.log(`Server is running on http://localhost:${port}`);
