@@ -1,61 +1,66 @@
 {
-  "name": "projekt_ecommerceapi",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  
-  "imports": {
-    "#db": {
-			"development": "./src/db/index.ts",
-			"default": "./dist/db/index.js"
-		},
-		"#models": {
-			"development": "./src/models/index.ts",
-			"default": "./dist/models/index.js"
-		},
-		"#controllers": {
-			"development": "./src/controllers/index.ts",
-			"default": "./dist/controllers/index.js"
-		},
-		"#routers": {
-			"development": "./src/routers/index.ts",
-			"default": "./dist/routers/index.js"
-		},
-		"#middleware": {
-			"development": "./src/middleware/index.ts",
-			"default": "./dist/middleware/index.js"
-		},
-		"#schemas": {
-			"development": "./src/schemas/index.ts",
-			"default": "./dist/schemas/index.js"
-		},
-		"#types": {
-			"development": "./src/schemas/index.ts"
-		}
+	"name": "projekt_ecommerceapi",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"imports": {
+	  "#db": {
+		"development": "./src/db/index.ts",
+		"default": "./dist/db/index.js"
+	  },
+	  "#models": {
+		"development": "./src/models/index.ts",
+		"default": "./dist/models/index.js"
+	  },
+	  "#controllers": {
+		"development": "./src/controllers/index.ts",
+		"default": "./dist/controllers/index.js"
+	  },
+	  "#routers": {
+		"development": "./src/routers/index.ts",
+		"default": "./dist/routers/index.js"
+	  },
+	  "#middleware": {
+		"development": "./src/middleware/index.ts",
+		"default": "./dist/middleware/index.js"
+	  },
+	  "#schemas": {
+		"development": "./src/schemas/index.ts",
+		"default": "./dist/schemas/index.js"
+	  },
+	  "#types": {
+		"development": "./src/schemas/index.ts"
+	  },
+	  "#config": {
+		"development": "./src/config/swagger.ts",
+		"default": "./dist/config/swagger.js"
+	  }
 	},
-
-  "scripts": {
-    "dev": "node --env-file=.env.development.local --watch --conditions development src/app.ts",
-    "prebuild": "rm -rf dist",
-    "build": "tsc",
-    "start": "node dist/app.js"
-  },
- 
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  
- 
-  "dependencies": {
-		"bcrypt": "^6.0.0",
-		"express": "^5.1.0",
-		"mongoose": "^8.18.0",
-		"zod": "^4.1.11"
+	"scripts": {
+	  "dev": "node --env-file=.env.development.local --watch --conditions development src/app.ts",
+	  "prebuild": "rm -rf dist",
+	  "build": "tsc",
+	  "start": "node dist/app.js"
 	},
-  "devDependencies": {
-		"@types/express": "^5.0.3",
-		"@types/node": "^24.0.14",
-		"typescript": "^5.8.3"
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+	  "bcrypt": "^6.0.0",
+	  "express": "^5.1.0",
+	  "mongodb": "^6.20.0",
+	  "mongoose": "^8.18.0",
+	  "swagger-jsdoc": "^6.2.8",
+	  "swagger-ui-express": "^5.0.1",
+	  "zod": "^4.1.11"
+	},
+	"devDependencies": {
+	  "@types/express": "^5.0.3",
+	  "@types/node": "^24.0.14",
+	  "@types/swagger-jsdoc": "^6.0.4",
+	  "@types/swagger-ui-express": "^4.1.8",
+	  "typescript": "^5.8.3"
 	}
-}
+  }
+  

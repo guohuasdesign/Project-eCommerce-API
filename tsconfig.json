@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     /* Base Options: */
+    "rootDir": "./src",
     "esModuleInterop": true, // Enables default imports from CommonJS modules
     "lib": ["es2022"], // Includes modern ES features in the type system
     "target": "es2022", // Sets the JavaScript version output
@@ -19,7 +20,6 @@
     "rewriteRelativeImportExtensions": true, // Rewrites relative imports with correct extensions
     "module": "preserve", // Preserves ES module syntax (important for native ESM)
     "noEmit": false, // Enables output generation
-    "rootDir": "./src",              // ✅ added
     "outDir": "dist", // Output directory for compiled JavaScript
     /* Paths */
     "baseUrl": "./src", // Base path for module resolution
@@ -27,5 +27,5 @@
       "#*": ["*"] // Defines internal path aliases with '#' to avoid conflict with '@'
     }
   },
-  "include": ["src"] // Files to include in compilation
+  "include": ["src", "src/types/imports.d.ts"] // Files to include in compilation
 }
