@@ -3,7 +3,7 @@ import '#db';
 import { userRouter, categoryRouter, productRouter, orderRouter } from '#routers';
 import { errorHandler } from '#middleware';
 import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "./config/swagger.ts";
+import swaggerSpec from "#config";
 
 
 const app = express();
@@ -18,6 +18,10 @@ app.use('/orders', orderRouter);
 
 // Swagger route should be registered before the catch-all and error handler
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.get('/api-docs.json', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerSpec);
+});
 
 app.use('*splat', (req, res) => {
 	throw new Error('Not found', { cause: { status: 404 } });
